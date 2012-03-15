@@ -10,17 +10,22 @@
 1. get your ruby on rails environment setup. I am using Ruby 1.9.3 and Rails 3.2. 
 2. download the project
   git clone git@github.com:3dd13/codeaholics_chat_room.git
+  
 3. go into the project folder
   cd codeaholics_chat_room
+  
 4. install all the dependencies
   bundle install
+  
 5. prepare the MySQL database
   cp database.yml.sample database.yml 
   update database.yml with your mysql login password
   rake db:create
   rake db:migate
+  
 6. start the Rails application
   rails s
+  
 7. open another terminal, start the Faye service
   rackup private_pub.ru -s thin -E production
 
