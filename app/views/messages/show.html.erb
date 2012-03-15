@@ -1,0 +1,17 @@
+<h1>Message</h1>
+
+<p>
+  <b>Content</b><br>
+  <%= @message.content %>
+</p>
+
+<p>
+  <b>Created by user</b><br>
+  <%= @message.created_by_user_id %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', messages_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_message_path(@message), :class => 'btn' %>
+  <%= link_to 'Delete', message_path(@message), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

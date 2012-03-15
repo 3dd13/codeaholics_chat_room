@@ -1,0 +1,36 @@
+// Place all the styles related to the chat_rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#attendee-list ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0px;
+  border: 1px solid #CCC;
+  border-radius: 5px; 
+}
+
+#transcript {
+  width:  700px;
+  height: 200px;
+  margin-bottom: 20px;
+  overflow: auto;
+  
+  background-image: linear-gradient(bottom, #D0E8D5 4%, #E0FCFC 52%);
+  background-image: -o-linear-gradient(bottom, #D0E8D5 4%, #E0FCFC 52%);
+  background-image: -moz-linear-gradient(bottom, #D0E8D5 4%, #E0FCFC 52%);
+  background-image: -webkit-linear-gradient(bottom, #D0E8D5 4%, #E0FCFC 52%);
+  background-image: -ms-linear-gradient(bottom, #D0E8D5 4%, #E0FCFC 52%);
+  
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.04, #D0E8D5),
+    color-stop(0.52, #E0FCFC)
+  );
+}
+
+#chat-room-window textarea {
+  width: 500px;
+}

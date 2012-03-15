@@ -1,0 +1,24 @@
+<h3 class="section-title">Login</h3>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div class="row">
+  	<%= f.label :email, :class => "span1" %>
+    <%= f.email_field :email, :class => "span4" %>
+  </div>
+
+  <div class="row">
+  	<%= f.label :password, :class => "span1" %>
+    <%= f.password_field :password, :class => "span4" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="row">
+    	<div class="span3">
+    		<%= f.check_box :remember_me, :class => "pull-left" %>
+      	<%= f.label :remember_me, :class => "pull-left" %>
+    	</div>
+    </div>
+  <% end -%>
+
+  <div><%= f.submit "Login", :class => "btn btn-warning btn-large" %></div>
+<% end %>

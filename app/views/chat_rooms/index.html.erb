@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="span8">
+		<%= render "chat_room_list", :chat_room_title => "Private Chat Rooms", :chat_rooms => @private_chat_rooms %>
+		<%= render "chat_room_list", :chat_room_title => "Public Chat Rooms", :chat_rooms => @public_chat_rooms %>
+	</div>
+
+	<div class="span4">
+		<div class="alert alert-info">
+			<h3 class="alert-heading">Chat Room types</h3>
+			<h4 class="alert-heading">1. Private Chat Room</h4>
+			<ul><li>&nbsp;Password is required to join.</li></ul>
+			
+			<h4 class="alert-heading">2. Public Chat Room</h4>
+			<ul><li>&nbsp;It opens for everyone.</li></ul>
+		</div>
+		
+		<div class="alert alert-info">
+			<h3 class="alert-heading">Want to host a Chat Room ?</h3>
+			<p>You can host one and contorl who can join.</p>
+			<h4>
+				<%= link_to 'Create New Chat Room', new_chat_room_path, :class => "btn btn-warning" %></li>
+			</h4>
+		</div>
+	</div>
+</div>

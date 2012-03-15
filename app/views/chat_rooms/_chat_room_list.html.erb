@@ -1,0 +1,45 @@
+<h3><%= chat_room_title %></h3>
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Hosted by</th>
+    <th>Status</th>
+    <th>Admin</th>
+  </tr>
+
+<% chat_rooms.each do |chat_room| %>
+  <tr>
+    <td>
+    	<% if chat_room.started? %>
+    	<%= link_to('Join', join_chat_room_path(chat_room), :method => :post, :class => "btn btn-warning") %>
+    	<% elsif chat_room.closed? %>
+    	<%= link_to('Chat History', join_chat_room_path(chat_room), :method => :post, :class => "btn") %>
+    	<% end %>
+    </td>
+    <td><%= chat_room.name %></td>
+    <td><%= chat_room.hosted_by_user.email %></td>
+    <td><%= chat_room.status %></td>
+    <td>
+    	<% if chat_room.hosted_by_user == current_user %>
+    	  <% if chat_room.can_start? %>
+    	    <%= link_to 'Open', start_chat_room_path(chat_room), :class => "btn btn-success", :title => "Open Room for user to join" %>
+    	  <% end %>
+    	  
+    	  <% if chat_room.can_close? %> 
+    	    <%= link_to 'Close', close_chat_room_path(chat_room), :class => "btn btn-success", :title => "Close Room" %>
+    	  <% end %>
+    	  
+    	  <%= link_to edit_chat_room_path(chat_room), :class => "btn", :title => "Edit" do %>
+    	    <i class="icon-pencil"></i>
+    	  <% end %>
+    	  
+    	  <%= link_to chat_room, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger", :title => "Delete" do %>
+    	    <i class="icon-trash icon-white"></i>
+    	  <% end %>
+    	<% end %>
+    </td>
+  </tr>
+<% end %>
+</table>

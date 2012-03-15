@@ -1,0 +1,8 @@
+<div class="row">
+	<div class="span2">
+		<span class="user_email label <%= viewer == message.created_by_user ? "label-info" : ""%>"><%= message.created_by_user.email %></span>
+	</div>
+	<div class="span5">
+		<%= message.content %>
+	</div>
+</div>

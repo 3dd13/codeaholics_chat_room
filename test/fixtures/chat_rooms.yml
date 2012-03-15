@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  hosted_by_user_id: 1
+  private_room: false
+  password: MyString
+
+two:
+  name: MyString
+  hosted_by_user_id: 1
+  private_room: false
+  password: MyString

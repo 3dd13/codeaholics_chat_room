@@ -1,0 +1,14 @@
+
+	<p>
+		<b>Name:</b>
+		<%= @chat_room.name %>
+	</p>
+	<p>
+		<b>Hosted by user:</b>
+		<%= @chat_room.hosted_by_user_id %>
+	</p>
+	<p>
+		<b>Private room:</b>
+		<%= @chat_room.private_room %>
+	</p>
+<%= link_to 'Back', chat_rooms_path, :class => "btn" %> 

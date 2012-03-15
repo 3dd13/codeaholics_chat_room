@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="span7">
+		<%= form_tag(post_message_chat_room_messages_path(@chat_room), :remote => true) do %>
+		<fieldset id="chat-room-window">
+			<legend>
+				<%= "#{@chat_room.name} (#{@chat_room.access_control.capitalize})" %>
+				<%= link_to 'Leave', leave_chat_room_path(@chat_room), :method => :post, :class => "btn" %>
+			</legend>
+			<div id="transcript">
+				<%= hidden_field_tag "my_user_email", current_user.email %>
+
+				<% @chat_room.messages.each do |message| %>
+				  <%= render "chat_room_message_line", :message => message, :viewer => current_user %>
+				<% end %>
+				<% if @chat_room.started? %>
+				  <%= subscribe_to "/messages/new/#{@chat_room.id}" %>
+				<% end %>
+			</div>
+			<% if @chat_room.started? %>
+			<%= text_area_tag :message_content, "", :rows => 3 %>
+			<%= submit_tag "Send", :class => "btn btn-warning" %>
+			<% end %>
+		</fieldset>
+		<% end %>
+	</div>
+	<div class="span3">
+		<div class="btn" data-toggle="collapse" data-target="#attendee-list">
+			Attendees <span class="label label-info">4</span>
+			<span class="caret"></span>
+		</div>
+		<div id="attendee-list" class="collapse">
+			<ul>
+				<li>
+					<%= @chat_room.hosted_by_user.email %> (Host)
+				</li>
+				<li>
+					A
+				</li>
+				<li>
+					B
+				</li>
+				<li>
+					C
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<h1>Messages</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Content</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.id %></td>
+        <td><%= link_to message.content, message_path(message) %></td>
+        <td><%= message.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_message_path(message), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', message_path(message), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_message_path, :class => 'btn btn-primary' %>

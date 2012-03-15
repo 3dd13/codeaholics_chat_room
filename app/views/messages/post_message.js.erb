@@ -1,0 +1,12 @@
+<% unless @message.nil? %>
+	<% publish_to "/messages/new/#{@message.chat_room_id}" do %>
+	  $("#transcript").append("<%= j render "/chat_rooms/chat_room_message_line", :message => @message, :viewer => current_user %>");
+	  $('#message_content')[0].value = "";
+	  $("#transcript").prop({ scrollTop: $("#transcript").prop("scrollHeight") });
+	  
+	  $('.user_email').last().removeClass("label-info");
+	  if ($('#my_user_email').attr("value") == $('.user_email').last().html()) {
+	    $('.user_email').last().addClass("label-info");
+	  }
+	<% end %>
+<% end %>

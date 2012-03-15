@@ -1,0 +1,47 @@
+<div class="row">
+	<div class="span9" id="main-content-section">
+		<h3 class="section-title">New to Codeaholics Chat</h3>
+		<p>
+			You need an account to join any chat room.
+		</p>
+		<p>
+			Go register account here to start:
+		</p>
+		<p>
+			<%= link_to "Sign up", new_user_registration_path, :class => "btn btn-warning" %>
+		</p>
+		<br/>
+		<h3 class="section-title">Already have an account</h3>
+		<p>
+			Go login and chat with others in real time
+		</p>
+		<%= link_to "Login", new_user_session_path, :class => "btn btn-warning" %></p>
+		</p>
+	</div>
+	<div class="span1">
+		&nbsp;
+	</div>
+	<div class="span3">
+		<div class="well sidebar-nav">
+			<h3>Opening Chatrooms</h3>
+			<ul class="nav nav-list">
+				<li class="nav-header">
+					Private
+				</li>
+				<% @private_chat_rooms.each do |chat_room| %>
+				<li>
+					<%= link_to chat_room.name, join_chat_room_path(chat_room) %>
+				</li>
+				<% end %>
+				<li class="nav-header">
+					Public
+				</li>
+				<% @public_chat_rooms.each do |chat_room| %>
+				<li>
+					<%= link_to chat_room.name, join_chat_room_path(chat_room) %>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div><!--/row-->

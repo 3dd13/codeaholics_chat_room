@@ -1,0 +1,17 @@
+<h3 class="section-title">You are joining a Private Chat Room</h3>
+
+<div class="alert alert-notice">
+</div>
+
+<%= form_for(join_chat_room_path(@chat_room)) do |f| %>
+<div>
+<%= f.label :password, raw("Please enter the password provided by the <strong>#{@chat_room.name}</strong> Host:") %>
+</div>
+<div>
+	<%= f.password_field :password, :class => "span3" %>
+</div>
+
+<div>
+	<%= f.submit "Join", :class => "btn btn-warning btn-large" %>
+</div>
+<% end %> 

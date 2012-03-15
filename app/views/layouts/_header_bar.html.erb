@@ -1,0 +1,16 @@
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+      <div class="container">
+	      <%= image_tag "chat.png", :id => "brand-go", :class => "pull-left" %> <a class="brand" href="/">Codeaholics Chat</a>
+	
+	      <div class="pull-right" id="loggin-status-menu">
+	        	<% if current_user %>
+	        	  <div id="logged-in-as-user">Logged in as <%= current_user.email %></div>
+	        	  <div id="logout-link"><%= link_to "Logout", destroy_user_session_path, :class => "btn btn-small", :method => :delete %></div>
+	        	<% else %>
+	            <%= link_to "Login", new_user_session_path, :class => "btn btn-warning btn-small" %>
+	          <% end %>
+	      </div><!--/.nav-collapse -->
+      </div>
+  </div>
+</header>
